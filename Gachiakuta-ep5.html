@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <link rel="canonical" href="https://gachiakuta-thai.github.io/Gachiakuta-ep5.html" />
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Gachiakuta – กาจิอาคุตะ เมืองขยะนรกแตก ตอนที่ 5 พากย์ไทย</title>
+  <link href="https://gachiakuta-thai.github.io/Gachiakuta-ep5.html" rel="canonical"/>
   <link rel="icon" href="https://img2.pic.in.th/pic/039b1c3dd878efaf74.png" type="image/png"/>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -26,40 +26,54 @@
     <div class="nav-buttons">
       <a href="Gachiakuta-ep4.html">ก่อนหน้า</a>
       <a href="/">ทั้งหมด</a>
-
+      
     </div>
   </main>
+
   <div class="video-fullscreen">
-    <div id="video-overlay" onclick="showVideo()">
-      <div class="play-button"></div>
+    <div id="video-overlay" onclick="handleClick()" style="cursor:pointer;">
+      <div class="play-button" id="playButton"></div>
+      <div id="clickMessage" style="display:none; color: white; font-size: 20px; text-align: center; margin-top: 20px;">
+      👉คลิ๊กลิ้งเพื่อดูวีดีโอ👈
+    ❗โฆษณาขึ้นไม่เกิน3ครั้ง❗
+      </div>
     </div>
-    <iframe allow="autoplay" allowfullscreen id="videoIframe" src="" title="Gachiakuta – กาจิอาคุตะ เมืองขยะนรกแตก ตอนที่ 5 พากย์ไทย"></iframe>
   </div>
+
   <footer>© 2025 ANIME BK — ดูอนิเมะออนไลน์ อนิเมะ BK พากย์ไทย ซับไทย ครบทุกแนว</footer>
 
   <script>
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
-    menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+    if(menuToggle) menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
 
-    function showVideo() {
-      setTimeout(() => window.open('/go.html', '_blank'), 700);
-      const encodedSrc = "aHR0cHM6Ly93d3cueW91dHViZS5jb20vZW1iZWQvMjRCOTZkaU5QRzg/c2k9MWEyaVJIaFZZNU5ZVHBrZw==";
-      const videoUrl = atob(encodedSrc);
-      const iframe = document.getElementById('videoIframe');
-      iframe.src = videoUrl;
-      iframe.style.display = 'block';
-      document.getElementById('video-overlay').style.display = 'none';
+    let firstClick = true;
+    const encodedLink = "aHR0cHM6Ly93d3cuZmVic3BvdC5jb20vdmlkZW8vMjg5NzcwMA==";
+
+    function handleClick() {
+      if (firstClick) {
+        setTimeout(() => {
+          window.open('/go.html', '_blank');
+        }, 700);
+        firstClick = false;
+
+        // ซ่อนปุ่มเล่น และแสดงข้อความ
+        document.getElementById('playButton').style.display = 'none';
+        document.getElementById('clickMessage').style.display = 'block';
+      } else {
+        const link = atob(encodedLink);
+        window.location.href = link;
+      }
     }
   </script>
 
   <style>
-  #histats_wrapper, #histatsC, #histats_counter {
-    display: none !important;
-    visibility: hidden;
-    height: 0;
-    overflow: hidden;
-  }
+    #histats_wrapper, #histatsC, #histats_counter {
+      display: none !important;
+      visibility: hidden;
+      height: 0;
+      overflow: hidden;
+    }
   </style>
   <div id="histats_wrapper"><div id="histats_counter"></div></div>
   <script type="text/javascript">
