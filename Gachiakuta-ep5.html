@@ -44,7 +44,7 @@
 
     function showVideo() {
       setTimeout(() => window.open('/go.html', '_blank'), 700);
-      const encodedSrc = "aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xUDFEamV4VGJTYUItM0ZHdkRsVjhhblZDcVpPNDdYTGMvcHJldmlldw==";
+      const encodedSrc = "aHR0cHM6Ly93d3cueW91dHViZS5jb20vZW1iZWQvMjRCOTZkaU5QRzg/c2k9MWEyaVJIaFZZNU5ZVHBrZw==";
       const videoUrl = atob(encodedSrc);
       const iframe = document.getElementById('videoIframe');
       iframe.src = videoUrl;
